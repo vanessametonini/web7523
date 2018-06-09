@@ -1,6 +1,5 @@
 
 var btnMudaLayout = document.querySelector("#btnMudaLayout");
-var btnsRemoverCartao = document.querySelectorAll(".opcoesDoCartao-remove");
 var muralLayout = document.querySelector(".mural")
 var noJS = document.querySelectorAll(".no-js");
 
@@ -17,17 +16,10 @@ btnMudaLayout.addEventListener("click", function () {
     muralLayout.classList.toggle("mural--linha");
 });
 
-btnsRemoverCartao.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        var pai = this.parentNode.parentNode;
-    
-        pai.classList.add("cartao--some");
-        pai.addEventListener("transitionend", function() {
-            pai.remove();
-        });
-    });
-});
-
-noJS.forEach(function(element) {
+noJS.forEach(function (element) {
     element.classList.remove("no-js");
 });
+
+(function(teste) {
+    console.log(teste)
+})("oi")

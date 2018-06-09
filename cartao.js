@@ -1,3 +1,4 @@
+
 (function () {
     const cartoes = document.querySelectorAll(".cartao");
 
@@ -9,28 +10,44 @@
         cartao.addEventListener("focusout", function () {
             cartao.classList.remove("cartao--focado");
         })
-    });
 
-    // const opcoesCartao = document.querySelectorAll(".opcoesDoCartao-opcao");
-    // opcoesCartao.forEach(opcao => {
-    //     opcao.addEventListener("click", function (event) {
-    //         const corSelecionada = event.target.style.color;
-
-    //         const cartao = event.target.parentNode.parentNode;
-    //         cartao.style.background = corSelecionada;
-    //     })
-    // });
-
-    cartoes.forEach(cartao => {
         cartao.addEventListener("click", function (event) {
-            if (event.target.classList.contains("opcoesDoCartao-opcao")) {
-                const corSelecionada = event.target.style.color;
-                // console.log(event.target.getAttribute("style"));
+            const elementoSelecionado = event.target;
+            
+            if (elementoSelecionado.classList.contains("opcoesDoCartao-opcao")) {
+                alterarCor(elementoSelecionado, cartao);
+            }
 
-                const cartao = event.target.parentNode.parentNode;
-                cartao.style.background = corSelecionada;
-                // cartao.setAttribute("style", "background: " + corSelecionada);
+            if (elementoSelecionado.classList.contains("opcoesDoCartao-remove")) {
+                removerCartao(elementoSelecionado);
+            }
+        });
+
+        cartao.addEventListener("keyup", function (event) {
+            // keyCode=13 => enter
+            // keyCode=32 => espaço
+
+            if (event.keyCode == 13 || event.keyCode == 32) {
+                event.target.click();
             }
         });
     });
+
+    function alterarCor(elementoSelecionado, cartao) {
+        if (elementoSelecionado.classList.contains("opcoesDoCartao-opcao")) {
+            const corSelecionada = elementoSelecionado.style.color;
+
+            cartao.style.background = corSelecionada;
+            // cartao.setAttribute("style", "background: " + corSelecionada);
+        }
+    }
+    
+    function removerCartao(elementoSelecionado) {
+        var pai = elementoSelecionado.parentNode.parentNode;
+    
+        pai.classList.add("cartao--some");
+        pai.addEventListener("transitionend", function () {
+            pai.remove();
+        });
+    }
 })()
