@@ -13,7 +13,7 @@
 
         cartao.addEventListener("click", function (event) {
             const elementoSelecionado = event.target;
-            
+
             if (elementoSelecionado.classList.contains("opcoesDoCartao-opcao")) {
                 alterarCor(elementoSelecionado, cartao);
             }
@@ -34,17 +34,15 @@
     });
 
     function alterarCor(elementoSelecionado, cartao) {
-        if (elementoSelecionado.classList.contains("opcoesDoCartao-opcao")) {
-            const corSelecionada = elementoSelecionado.style.color;
+        const corSelecionada = elementoSelecionado.style.color;
 
-            cartao.style.background = corSelecionada;
-            // cartao.setAttribute("style", "background: " + corSelecionada);
-        }
+        cartao.style.background = corSelecionada;
+        // cartao.setAttribute("style", "background: " + corSelecionada);
     }
-    
+
     function removerCartao(elementoSelecionado) {
         var pai = elementoSelecionado.parentNode.parentNode;
-    
+
         pai.classList.add("cartao--some");
         pai.addEventListener("transitionend", function () {
             pai.remove();
