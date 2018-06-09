@@ -23,17 +23,19 @@
 	z-index: 2;
 }
 
-/*.cartao .opcoesDoCartao-opcao {
+.cartao .opcoesDoCartao-opcao {
 	opacity: 0;
 	transition: opacity .2s ease;
+	/* transition: opacity .3s; */
+	pointer-events: none;
 }
 
+.cartao:hover .opcoesDoCartao-opcao,
 .cartao:focus .opcoesDoCartao-opcao,
-.cartao--focado .opcoesDoCartao-opcao{
+.cartao--focado .opcoesDoCartao-opcao {
 	opacity: 1;
+	pointer-events: auto;
 }
-*/
-
 
 .cartao-conteudo {
 	white-space: pre-line;

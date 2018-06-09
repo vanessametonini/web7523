@@ -1,0 +1,4 @@
+
+pseudo-class = classe temporária (:hover,...)
+bubbling = percorrer itens de "filho pra pai" (de dentro pra fora)
+
