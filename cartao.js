@@ -3,6 +3,7 @@
     const cartoes = document.querySelectorAll(".cartao");
 
     cartoes.forEach(cartao => {
+       
         cartao.addEventListener("focusin", function () {
             cartao.classList.add("cartao--focado");
         })
